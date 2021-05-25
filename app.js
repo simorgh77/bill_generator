@@ -86,8 +86,24 @@ final_price(wage, sum_price)
 
 function final_price(wage, sum_price){
 
-document.getElementById("final_price").innerText=wage+sum_price
+const final_price=document.getElementById("final_price").innerText=wage+sum_price
+bascket.final_price=final_price;
 }
+function insert_off(final_price){
+
+const key='nogh'
+
+const off_key =document.getElementById("off")
+
+if(off_key.value==key&&bascket.final_price>0){
+ const off= bascket.final_price*(0.2)
+  document.getElementById("final_price").innerText= bascket.final_price-off
+  alert("کد تخفیف درست است")
+  
+}
+}
+
+
 
   function delete_food_from_bascket(id){
       alert("غذا از لیست حذف شد")
@@ -118,7 +134,7 @@ function render(){
     body.innerHTML+=`<div class="food${item.id} h-100 d-flex flex-row-reverse mt-4">
 
     <div class="col-8 d-flex flex-row-reverse align-items-center" id="food-data${item.id}">
-      <div class="col-6"id="food-pic${item.id}"><img src="./1-11.jpg" width="150rem" class="img-fluid"></div>
+      <div class="col-6"id="food-pic bg-ingo${item.id}"><img src="./1-11.jpg" width="150rem" class="img-fluid "></div>
       <div class="col-3 " id="food-info${item.id}">
 
         <div class="food-name${item.id}">${item.name}</div>
